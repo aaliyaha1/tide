@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package data;
+
+option go_package = "./pkg/pb";
+
+service DataService{
+  rpc GetBalance(GetBalanceRequest) returns (GetBalanceResponse) {}
+  rpc GetVolume(GetVolumeRequest) returns (GetVolumeResponse) {}
+  rpc GetOrders(GetOrdersRequest) returns (GetOrdersResponse) {}
+}
+
+// GetBalance
+
+message GetBalanceRequest {
+  string account = 1;
+}
+
+message GetBalanceResponse {
+  int64 status = 1;
+  string error = 2;
+  bytes res = 3;
+}
+
+// GetVolume
+
+message GetVolumeRequest {
+  string account = 1;
+}
+
+message GetVolumeResponse {
+  int64 status = 1;
+  string error = 2;
+  bytes res = 3;
+}
+
+// GetOrders
+
+message GetOrdersRequest {
+  string account = 1;
+}
+
+message GetOrdersResponse {
+  int64 status = 1;
+  string error = 2;
+  bytes res = 3;
+}
